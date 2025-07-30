@@ -1,6 +1,6 @@
 // Function to start countdown and handle the audio
 function startCountdown() {
-    const countdownDate = new Date("July 30, 2025 23:25:00").getTime();
+    const countdownDate = new Date("July 31, 2025 00:00:00").getTime();
     const timerElement = document.getElementById("timer");
     const loveNote = document.getElementById("love-note");
 
