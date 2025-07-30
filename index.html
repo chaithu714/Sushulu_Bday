@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login to Birthday Countdown</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap">
+    <style>
+        /* Custom cursor */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #ffd1dc, #ffe6e6);
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: url('https://upload.wikimedia.org/wikipedia/commons/3/3e/Red_heart.svg'), auto;
+        }
+
+        .container {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            animation: popIn 1s ease-out;
+            z-index: 10; /* Ensure content stays above decorations */
+        }
+        h1 {
+            font-family: 'Pacifico', cursive;
+            color: #ff6b81;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        h4 {
+            color: #555;
+            margin-bottom: 20px;
+        }
+        label {
+            font-size: 1rem;
+            color: #444;
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            outline: none;
+        }
+        input:focus {
+            border-color: #ff6b81;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #ff6b81;
+            border: none;
+            color: white;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #ff4a61;
+        }
+        .error {
+            margin-top: 10px;
+            color: red;
+            font-style: italic;
+        }
+        @keyframes popIn {
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Oye!!👀</h1>
+        <h4>Only you can crack this to enter my world !</h4>
+        <form id="loginForm" onsubmit="return false;">
+            <label for="answer">Enter your favorite actress name:</label><br>
+            <input type="text" id="answer" placeholder="Enter your answer"><br>
+            <button type="submit" onclick="checkLogin()">Submit</button>
+        </form>
+        <p id="error" class="error"></p>
+    </div>
+    <script>
+        function checkLogin() {
+            const inputField = document.getElementById("answer");
+            const answer = inputField.value.trim().toLowerCase();
+            const error = document.getElementById("error");
+
+            const correctAnswer = "anushka"; // Replace with the correct answer
+
+            error.textContent = "";
+
+            if (answer === "") {
+                error.textContent = "Please enter an answer.";
+                inputField.value = "";
+                inputField.focus();
+                return;
+            }
+
+            if (answer === correctAnswer) {
+                window.location.href = "./countdown.html";
+            } else {
+                error.textContent = "Incorrect answer. Please try again.";
+                inputField.value = "";
+                inputField.focus();
+            }
+        }
+    </script>
+</body>
+</html>
